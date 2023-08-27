@@ -70,12 +70,12 @@ const config = {
       contextualSearch: true,
     },
     metadata: [
-      { name: "og:image", content: "" },
+      { name: "og:image", content: "https://weblutions.com/assets/logo.png" },
       { name: "og:image:alt", content: "shawne.dev logo" },
       { name: "og:url", content: "https://docs.shawne.dev" },
       { name: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:image", content: "" },
+      { name: "twitter:image", content: "https://weblutions.com/assets/logo.png" },
     ],
     navbar: {
       title: "shawne.dev Docs",
