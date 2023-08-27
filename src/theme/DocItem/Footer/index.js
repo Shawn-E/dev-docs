@@ -6,7 +6,7 @@ import LastUpdated from "@theme/LastUpdated";
 import EditThisPage from "@theme/EditThisPage";
 import TagsListInline from "@theme/TagsListInline";
 import styles from "./styles.module.css";
-import { Feedback } from "../../../components/feedback";
+
 
 function TagsRow(props) {
   return (
@@ -50,7 +50,7 @@ export default function DocItemFooter() {
 
   return (
     <>
-      <Feedback resource={unversionedId} />
+
       <footer className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}>
         {canDisplayTagsRow && <TagsRow tags={tags} />}
         {canDisplayEditMetaRow && (
