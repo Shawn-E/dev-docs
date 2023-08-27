@@ -59,7 +59,7 @@ const config = {
   ],
 
   plugins: [
-    ["@docusaurus/plugin-google-gtag", { trackingID: "G-HE45R7EFY2", anonymizeIP: true }],
+    ["@docusaurus/plugin-google-gtag", { trackingID: "G-0NRZS0PMDZ", anonymizeIP: true }],
     ["@docusaurus/plugin-google-tag-manager", { containerId: "GTM-KHZPPK8B" }],
   ],
   themeConfig: {
