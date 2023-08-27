@@ -1,128 +1,109 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require("prism-react-renderer/dist");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Shawn E. API Docs',
-  tagline: 'api.shawne.dev\'s offical documantation',
-  url: 'https://docs.shawne.dev',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
+  favicon: "/icons/logo.svg",
+  title: "shawne.dev Docs",
+  tagline: "Documentation provided for products of shawne.dev",
+  url: "https://docs.shawne.dev",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
+  organizationName: "shawne.dev",
+  projectName: "docs",
+  trailingSlash: false,
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        sitemap: {
+          changefreq: "daily",
+          priority: 0.6,
+          filename: "sitemap.xml",
+        },
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: require.resolve("./sidebars.js"),
+          showLastUpdateTime: true,
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        // blog: {
+        //   path: "changelog",
+        //   editUrl: ({ locale, blogDirPath, blogPath }) =>
+        //     `https://github.com/Shawn-E/docs/edit/main/${blogDirPath}/${blogPath}`,
+        //   editLocalizedFiles: false,
+        //   blogTitle: "SnailyCAD Changelog",
+        //   blogDescription: "SnailyCAD Changelog",
+        //   blogSidebarCount: 5,
+        //   blogSidebarTitle: "All Versions",
+        //   routeBasePath: "changelog",
+        //   include: ["**/*.{md,mdx}"],
+        //   exclude: [
+        //     "**/_*.{js,jsx,ts,tsx,md,mdx}",
+        //     "**/_*/**",
+        //     "**/*.test.{js,jsx,ts,tsx}",
+        //     "**/__tests__/**",
+        //   ],
+        //   postsPerPage: 10,
+        //   rehypePlugins: [],
+        //   beforeDefaultRemarkPlugins: [],
+        //   beforeDefaultRehypePlugins: [],
+        //   truncateMarker: /<!--\s*(truncate)\s*-->/,
+        //   showReadingTime: true,
+        // },
       }),
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'Shawn E Dev Docs',
-        logo: {
-          alt: 'Site Logo',
-          src: 'img/logo.png',
+  plugins: [
+    ["@docusaurus/plugin-google-gtag", { trackingID: "G-HE45R7EFY2", anonymizeIP: true }],
+    ["@docusaurus/plugin-google-tag-manager", { containerId: "GTM-KHZPPK8B" }],
+  ],
+  themeConfig: {
+    algolia: {
+      appId: "07W6EBVXOA",
+      apiKey: "c80520cd73d4d88eb43623ecf71e8283",
+      indexName: "docs",
+      contextualSearch: true,
+    },
+    metadata: [
+      { name: "og:image", content: "" },
+      { name: "og:image:alt", content: "shawne.dev logo" },
+      { name: "og:url", content: "https://docs.shawne.dev" },
+      { name: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:image", content: "" },
+    ],
+    navbar: {
+      title: "shawne.dev Docs",
+      items: [
+        {
+          type: "doc",
+          docId: "getting-started/index",
+          position: "left",
+          label: "Documentation",
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/Shawn-E',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Main Docs',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Discord',
-                href: 'https://store.shawnengmann.com/discord',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/shawne_07',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/Shawn-E',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Shawn's API Docs`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+        {
+          position: "right",
+          href: "https://link.shawne.dev/d",
+          label: "Discord",
+        },
+        {
+          href: "https://link.shawne.dev/gh",
+          label: "GitHub",
+          position: "right",
+        },
+      ],
+    },
+    prism: {
+      theme: themes.github,
+      darkTheme: themes.dracula,
+      additionalLanguages: ["lua"],
+    },
+  },
 };
 
 module.exports = config;
